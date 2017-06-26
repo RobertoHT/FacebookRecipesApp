@@ -14,7 +14,7 @@ import com.facebook.appevents.AppEventsLogger;
 import com.facebook.login.LoginResult;
 import com.facebook.login.widget.LoginButton;
 import com.professional.micromaster.facebookrecipesapp.R;
-import com.professional.micromaster.facebookrecipesapp.RecipeMainActivity;
+import com.professional.micromaster.facebookrecipesapp.recipemain.ui.RecipeMainActivity;
 
 import java.util.Arrays;
 
