@@ -5,13 +5,14 @@ import com.professional.micromaster.facebookrecipesapp.db.RecipesDatabase;
 import com.raizlabs.android.dbflow.annotation.Column;
 import com.raizlabs.android.dbflow.annotation.PrimaryKey;
 import com.raizlabs.android.dbflow.annotation.Table;
+import com.raizlabs.android.dbflow.structure.BaseModel;
 
 /**
  * Created by Roberto on 26/06/17.
  */
 
 @Table(database = RecipesDatabase.class)
-public class Recipe {
+public class Recipe extends BaseModel {
     @SerializedName("recipe_id")
     @PrimaryKey private String recipeId;
     @Column private String title;
@@ -53,7 +54,7 @@ public class Recipe {
         this.sourceURL = sourceURL;
     }
 
-    public boolean isFavorite() {
+    public boolean getFavorite() {
         return favorite;
     }
 
