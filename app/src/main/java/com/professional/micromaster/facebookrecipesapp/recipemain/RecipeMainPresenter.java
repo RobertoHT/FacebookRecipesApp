@@ -1,5 +1,6 @@
 package com.professional.micromaster.facebookrecipesapp.recipemain;
 
+import com.professional.micromaster.facebookrecipesapp.entities.Recipe;
 import com.professional.micromaster.facebookrecipesapp.recipemain.event.RecipeMainEvent;
 import com.professional.micromaster.facebookrecipesapp.recipemain.ui.RecipeMainView;
 
@@ -13,7 +14,7 @@ public interface RecipeMainPresenter {
 
     void dismissRecipe();
     void getNextRecipe();
-    void saveRecipe();
+    void saveRecipe(Recipe recipe);
     void onEventMainThread(RecipeMainEvent event);
 
     void imageReady();
