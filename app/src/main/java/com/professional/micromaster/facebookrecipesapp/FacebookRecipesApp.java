@@ -3,9 +3,10 @@ package com.professional.micromaster.facebookrecipesapp;
 import android.app.Application;
 
 import com.facebook.FacebookSdk;
+import com.raizlabs.android.dbflow.config.FlowManager;
 
 /**
- * Created by praxis on 26/06/17.
+ * Created by Roberto on 26/06/17.
  */
 
 public class FacebookRecipesApp extends Application {
@@ -13,6 +14,21 @@ public class FacebookRecipesApp extends Application {
     public void onCreate() {
         super.onCreate();
         initFacebook();
+        initDB();
+    }
+
+    private void initDB() {
+        FlowManager.init(this);
+    }
+
+    @Override
+    public void onTerminate() {
+        super.onTerminate();
+        DBTearDown();
+    }
+
+    private void DBTearDown() {
+        FlowManager.destroy();
     }
 
     private void initFacebook() {
