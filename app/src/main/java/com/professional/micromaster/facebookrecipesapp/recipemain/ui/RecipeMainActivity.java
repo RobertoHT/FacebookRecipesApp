@@ -20,6 +20,7 @@ import com.professional.micromaster.facebookrecipesapp.RecipeListActivity;
 import com.professional.micromaster.facebookrecipesapp.entities.Recipe;
 import com.professional.micromaster.facebookrecipesapp.libs.base.ImageLoader;
 import com.professional.micromaster.facebookrecipesapp.recipemain.RecipeMainPresenter;
+import com.professional.micromaster.facebookrecipesapp.recipemain.di.RecipeMainComponent;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -40,6 +41,7 @@ public class RecipeMainActivity extends AppCompatActivity implements RecipeMainV
     private Recipe currentRecipe;
     private ImageLoader imageLoader;
     private RecipeMainPresenter presenter;
+    private RecipeMainComponent component;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -88,6 +90,18 @@ public class RecipeMainActivity extends AppCompatActivity implements RecipeMainV
     }
 
     private void setupInjection() {
+        FacebookRecipesApp app = (FacebookRecipesApp)getApplication();
+        component = app.getRecipeMainComponent(this, this);
+        imageLoader = getImageLoader();
+        presenter = getPresenter();
+    }
+
+    public ImageLoader getImageLoader() {
+        return component.getImageLoader();
+    }
+
+    public RecipeMainPresenter getPresenter() {
+        return component.getPresenter();
     }
 
     private void setupImageLoader() {
