@@ -1,7 +1,9 @@
-package com.professional.micromaster.facebookrecipesapp;
+package com.professional.micromaster.facebookrecipesapp.recipelist.ui;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import com.professional.micromaster.facebookrecipesapp.R;
 
 public class RecipeListActivity extends AppCompatActivity {
 

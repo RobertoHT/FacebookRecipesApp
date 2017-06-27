@@ -20,7 +20,7 @@ import com.bumptech.glide.request.RequestListener;
 import com.bumptech.glide.request.target.Target;
 import com.professional.micromaster.facebookrecipesapp.FacebookRecipesApp;
 import com.professional.micromaster.facebookrecipesapp.R;
-import com.professional.micromaster.facebookrecipesapp.RecipeListActivity;
+import com.professional.micromaster.facebookrecipesapp.recipelist.ui.RecipeListActivity;
 import com.professional.micromaster.facebookrecipesapp.entities.Recipe;
 import com.professional.micromaster.facebookrecipesapp.libs.base.ImageLoader;
 import com.professional.micromaster.facebookrecipesapp.recipemain.RecipeMainPresenter;
