@@ -14,6 +14,7 @@ import com.professional.micromaster.facebookrecipesapp.FacebookRecipesApp;
 import com.professional.micromaster.facebookrecipesapp.R;
 import com.professional.micromaster.facebookrecipesapp.entities.Recipe;
 import com.professional.micromaster.facebookrecipesapp.recipelist.RecipeListPresenter;
+import com.professional.micromaster.facebookrecipesapp.recipelist.di.RecipeListComponent;
 import com.professional.micromaster.facebookrecipesapp.recipelist.ui.adapter.OnItemClickListener;
 import com.professional.micromaster.facebookrecipesapp.recipelist.ui.adapter.RecipesAdapter;
 import com.professional.micromaster.facebookrecipesapp.recipemain.ui.RecipeMainActivity;
@@ -32,6 +33,7 @@ public class RecipeListActivity extends AppCompatActivity implements RecipeListV
 
     private RecipesAdapter adapter;
     private RecipeListPresenter presenter;
+    private RecipeListComponent component;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -85,6 +87,10 @@ public class RecipeListActivity extends AppCompatActivity implements RecipeListV
     }
 
     private void setupInjection() {
+        FacebookRecipesApp app = (FacebookRecipesApp)getApplication();
+        component = app.getRecipeListComponent(this, this, this);
+        presenter = getPresenter();
+        adapter = getAdapter();
     }
 
     private void setupRecyclerView() {
@@ -125,5 +131,13 @@ public class RecipeListActivity extends AppCompatActivity implements RecipeListV
     @Override
     public void onItemClick(Recipe recipe) {
         startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(recipe.getSourceURL())));
+    }
+
+    private RecipeListPresenter getPresenter() {
+        return component.getPresenter();
+    }
+
+    private RecipesAdapter getAdapter() {
+        return component.getAdapter();
     }
 }

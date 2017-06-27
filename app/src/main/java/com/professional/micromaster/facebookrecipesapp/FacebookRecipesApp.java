@@ -7,6 +7,12 @@ import com.facebook.FacebookSdk;
 import com.facebook.login.LoginManager;
 import com.professional.micromaster.facebookrecipesapp.libs.di.LibsModule;
 import com.professional.micromaster.facebookrecipesapp.login.LoginActivity;
+import com.professional.micromaster.facebookrecipesapp.recipelist.di.DaggerRecipeListComponent;
+import com.professional.micromaster.facebookrecipesapp.recipelist.di.RecipeListComponent;
+import com.professional.micromaster.facebookrecipesapp.recipelist.di.RecipeListModule;
+import com.professional.micromaster.facebookrecipesapp.recipelist.ui.RecipeListActivity;
+import com.professional.micromaster.facebookrecipesapp.recipelist.ui.RecipeListView;
+import com.professional.micromaster.facebookrecipesapp.recipelist.ui.adapter.OnItemClickListener;
 import com.professional.micromaster.facebookrecipesapp.recipemain.di.DaggerRecipeMainComponent;
 import com.professional.micromaster.facebookrecipesapp.recipemain.di.RecipeMainComponent;
 import com.professional.micromaster.facebookrecipesapp.recipemain.di.RecipeMainModule;
@@ -56,6 +62,14 @@ public class FacebookRecipesApp extends Application {
                 .builder()
                 .libsModule(new LibsModule(activity))
                 .recipeMainModule(new RecipeMainModule(view))
+                .build();
+    }
+
+    public RecipeListComponent getRecipeListComponent(RecipeListActivity activity, RecipeListView view, OnItemClickListener onItemClickListener) {
+        return DaggerRecipeListComponent
+                .builder()
+                .libsModule(new LibsModule(activity))
+                .recipeListModule(new RecipeListModule(view, onItemClickListener))
                 .build();
     }
 }
