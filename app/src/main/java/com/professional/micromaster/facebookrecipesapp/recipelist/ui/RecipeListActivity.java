@@ -133,11 +133,11 @@ public class RecipeListActivity extends AppCompatActivity implements RecipeListV
         startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(recipe.getSourceURL())));
     }
 
-    private RecipeListPresenter getPresenter() {
+    public RecipeListPresenter getPresenter() {
         return component.getPresenter();
     }
 
-    private RecipesAdapter getAdapter() {
+    public RecipesAdapter getAdapter() {
         return component.getAdapter();
     }
 }
